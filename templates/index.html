@@ -1,0 +1,22 @@
+<!doctype html>
+  <html>
+      <head>
+          <title>Sticker Image Validator</title>  
+      </head>
+      <body>
+          <h1>Sticker Image Validator v0.17</h1>
+          <img src="/uploads/{{ filename }}" width=200 height=200>
+          
+{% if sticksize > 6 %}
+	<h2> This image is {{ bigstickmulti }}x bigger than the 6 in price.</h2>
+{% else %}
+	<h2>The maximum size for this sticker falls under the <strong>{{ sticksize }}</strong>
+            inch price bracket.</h2>
+{% endif %}
+
+          <h2>The dimensions of this sticker is {{ inwidth }}"w x {{ inheight }}"h.</h2>
+	  <h3>Image Area: {{ area }} sqin</h3>
+          <h3>Image Height: {{ height }} px</h3>
+          <h3>Image width: {{ width }} px</h3>
+      </body>
+</html>
