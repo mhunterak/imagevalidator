@@ -1,34 +1,25 @@
-<!— added navigation buttons and adjusted thumbnail to scale proportionately. Version control. —>
+<!— added version control. —>
 
 <!doctype html>
-  <html>
-      <head>
-          <title>Result - THSIMGV - v{{ version }}</title>  
-      </head>
-      <body>
+<html>
+  <head>  
+    <title>Upload  — THSIMGV - v{{ version }}</title>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+  </head>
+  <body>
           <h1>Sticker Image Validator v{{ version }}</h1>
-<div>
-          <img src="/uploads/{{ filename }}">
-          
-{% if sticksize > 6 %}
-	<h2> This image is {{ bigstickmulti }}x bigger than the 6 in price.</h2>
-{% else %}
-	<h2>The maximum size for this sticker falls under the {{ sticksize }}
-            square inch (or less) price bracket.</h2>
-{% endif %}
-
-          <h2>The this image is {{ inwidth }}" wide x {{ inheight }}" tall.</h2>
-	  <h3>Image Area: {{ area }} sqin</h3>
-          <h3>Image Height: {{ height }} px</h3>
-          <h3>Image width: {{ width }} px</h3>
-</div>
-<div>
-<form action=/>
-    <input type="submit" value=Upload>
-</form>
-<form action=/clear/>
-    <input type="submit" value=Clear>
-</form>
-</div>
-      </body>
+    <h1>Upload new File</h1>
+    <form action="" method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+    </form>
+    </body>
 </html>
