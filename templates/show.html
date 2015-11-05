@@ -1,30 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title>Result - THSIMGV - v{{ version }}</title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1348.17">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1">{% extends 'layout.html' %} {% block content %}</span></p>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Sticker Image Validator v{{ version }}</b></span></h1>
-<p class="p1"><span class="s1"> {% if sticksize &gt; 6 %}</span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>This image is {{ bigstickmulti }}x bigger than the 6 in price.</b></span></h2>
-<p class="p1"><span class="s1">{% else %}</span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>The maximum size for this sticker falls under the {{ sticksize }} square inch (or less) price bracket.</b></span></h2>
-<p class="p1"><span class="s1">{% endif %}</span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>The this image is {{ inwidth }}" wide x {{ inheight }}" tall.</b></span></h2>
-<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Image Area: {{ area }} sqin</b></span></h3>
-<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Image Height: {{ height }} px</b></span></h3>
-<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Image width: {{ width }} px</b></span></h3>
-<p class="p5"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">{% endblock %}</span></p>
-</body>
-</html>
+<!doctype html>
+{% extends 'layout.html' %}
+
+{% block content %}
+          <title>Result - THSIMGV - v{{ version }}</title>  
+      </head>
+      <body>
+          <h1>Sticker Image Validator v{{ version }}</h1>
+<div>
+          <img src="/uploads/{{ filename }}">
+          
+{% if sticksize > 6 %}
+	<h2> This image is {{ bigstickmulti }}x bigger than the 6 in price.</h2>
+{% else %}
+	<h2>The maximum size for this sticker falls under the {{ sticksize }}
+            square inch (or less) price bracket.</h2>
+{% endif %}
+
+          <h2>The this image is {{ inwidth }}" wide x {{ inheight }}" tall.</h2>
+	  <h3>Image Area: {{ area }} sqin</h3>
+          <h3>Image Height: {{ height }} px</h3>
+          <h3>Image width: {{ width }} px</h3>
+</div>
+<div>
+<form action=/delete/{{ filename }}>
+    <input type="submit" value=Upload>
+</form>
+
+</div>
+{% endblock %}
