@@ -1,18 +1,7 @@
-<!— added version control. —>
+{% extends 'layout.html' %}
 
-<!doctype html>
-<html>
-  <head>  
+{% block content %}
     <title>Upload  — THSIMGV - v{{ version }}</title>
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
   </head>
   <body>
           <h1>Sticker Image Validator v{{ version }}</h1>
@@ -21,5 +10,4 @@
       <p><input type=file name=file>
          <input type=submit value=Upload>
     </form>
-    </body>
-</html>
+{% endblock %}

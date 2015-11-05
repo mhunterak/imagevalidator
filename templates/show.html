@@ -1,13 +1,7 @@
 <!— added navigation buttons and adjusted thumbnail to scale proportionately. Version control. —>
+{% extends 'layout.html' %}
 
-
-
-<!doctype html>
-  <html>
-
-
-
-      <head>
+{% block content %}
           <title>Result - THSIMGV - v{{ version }}</title>  
       </head>
       <body>
@@ -33,5 +27,4 @@
 </form>
 
 </div>
-      </body>
-</html>
+{% endblock %}

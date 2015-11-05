@@ -1,8 +1,8 @@
 <!— added option to clear thumbnails from server, and buttons to start over. Version control.—> 
 
-<!doctype html>
-  <html>
-      <head>
+{% extends 'layout.html' %}
+
+{% block content %}
           <title>Clear - THSIMGV - v{{ version }}</title>  
       </head>
       <body>
@@ -11,3 +11,4 @@
 <form action=/>
     <input type="submit" value=Upload>
 </form>
+{% endblock %}
